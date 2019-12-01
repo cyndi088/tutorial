@@ -1,1 +1,1 @@
-# djangi-rest
+# django-rest
