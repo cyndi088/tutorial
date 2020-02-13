@@ -10,14 +10,13 @@ LEXERS = [item for item in get_all_lexers() if item[1]]
 LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
 STYLE_CHOICES = sorted([(item, item) for item in get_all_styles()])
 
-owner = models.ForeignKey('auth.User', related_name='snippets', on_delete=models.CASCADE)
-highlighted = models.TextField()
-
 
 class Snippet(models.Model):
-    created = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     title = models.CharField(max_length=100, blank=True, default='', verbose_name='标题')
+    owner = models.ForeignKey('auth.User', related_name='snippets', on_delete=models.CASCADE, verbose_name='创建者')
     code = models.TextField(verbose_name='代码')
+    highlighted = models.TextField(verbose_name='代码HTML格式')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     linenos = models.BooleanField(default=False)
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100, verbose_name='语言')
     style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100, verbose_name='风格')
@@ -37,5 +36,5 @@ class Snippet(models.Model):
 
     class Meta:
         ordering = ['created']
-        verbose_name_plural = '片段'  # 首页列表的显示名称（模型类重命名复数）
-        verbose_name = '片段'  # 列表页和详情页的显示名称（模型类重命名）
+        verbose_name_plural = '代码段'  # 首页列表的显示名称（模型类重命名复数）
+        verbose_name = '代码段'  # 列表页和详情页的显示名称（模型类重命名）
