@@ -24,6 +24,6 @@ router = routers.DefaultRouter()
 urlpatterns = [
     path('', include(router.urls)),
     path('', include('tutorial.snippets.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # 后台管理界面
     path('api-auth/', include('rest_framework.urls')),
 ]
