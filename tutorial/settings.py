@@ -84,6 +84,8 @@ DATABASES = {
     }
 }
 
+# LOGIN_REDIRECT_URL = '/admin'  # 登录后重定向页面
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
