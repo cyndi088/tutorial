@@ -36,5 +36,5 @@ class Snippet(models.Model):
 
     class Meta:
         ordering = ['created']
-        verbose_name_plural = '代码段'  # 首页列表的显示名称（模型类重命名复数）
-        verbose_name = '代码段'  # 列表页和详情页的显示名称（模型类重命名）
+        verbose_name_plural = 'Snippets'  # 首页列表的显示名称（模型类重命名复数）
+        verbose_name = 'Snippet'  # 列表页和详情页的显示名称（模型类实例对象）
